@@ -8,8 +8,8 @@
 
         public Boxes(int[] input_boxes_vertical)
         {
-            height = input_boxes_vertical.Length;
-            width = input_boxes_vertical.Max();
+            width = input_boxes_vertical.Length;
+            height = input_boxes_vertical.Max();
 
             this.boxes_vertical = new int [width, height];
 
@@ -27,14 +27,16 @@
 
         public void ShowRawBoxes()
         {
-            for(int i = 0; i < width; i++)
+            for (int j = 0; j < height; j++)
             {
-                for (int j = 0; j < height; j++)
+                for (int i = 0; i < width; i++)
                 {
                     Console.Write(boxes_vertical[i, j]);
                 }
                 Console.WriteLine();
             }
+
+            
         }
     }
 }
