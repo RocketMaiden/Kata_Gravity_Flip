@@ -11,25 +11,30 @@ Console.ReadKey();
 
 int number = 1813;
 int length = 0;
-int[] number_array;
+int[] number_array = new int[int.MaxValue];
 
-while(number%10 > 0)
+/*while(number%10 > 0)
 {
-    //int letter = number / 10;
     number = number % 10;
     length++;
-}
+}*/
 
-number_array = new int[length];
+//number_array = new int[length];
 
 while(number % 10 > 0)
 {
     number_array[number % 10] = number / 10;
     number = number % 10;
+    length++;
 }
 int sum = 0;
 
-foreach (int letter in number_array)
+/*foreach (int letter in number_array)
 {
     sum += letter;
+}*/
+
+for(int i = 0; i < length; i++)
+{
+    sum += number_array[i];
 }
