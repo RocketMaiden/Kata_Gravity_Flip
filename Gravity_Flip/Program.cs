@@ -11,7 +11,7 @@ Console.ReadKey();
 
 int number = 1813;
 int length = 0;
-int[] number_array = new int[int.MaxValue];
+int[] number_array = new int[10];
 
 /*while(number%10 > 0)
 {
