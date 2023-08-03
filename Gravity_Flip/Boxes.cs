@@ -26,24 +26,44 @@
             }
         }
 
-        public int [] HorisontalBoxes()
+        public int[] HorisontalBoxes()
         {
-            int[] boxes_horisontal = new int[width];
+            int[] boxes_horisontal  = new int[width];
+            int count = 0;
+            int row = 0;
 
-            for (int i = 0; i < width; i++)
+            for (int j = 0; j < height; j++)
             {
-                int count = 0;
-
-                for (int j = 0; j < height; j++)
+                for (int i = 0; i < width; i++)
                 {
                     if (boxes[i, j] == 1)
                     {
                         count++;
                     }
-                    boxes_horisontal[j] = count;//
+
                 }
+                boxes_horisontal[row] = count;
+                count = 0;
+                row++;
+            }
+
+                return boxes_horisontal;
+
+            /*
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    if (boxes[j, i] == 1)
+                    {
+                        count++;
+                    }
+                }
+                boxes_horisontal[i] = count;
+                count = 0;
             }
             return boxes_horisontal;
+            */
         }
 
         public void MoveRight()

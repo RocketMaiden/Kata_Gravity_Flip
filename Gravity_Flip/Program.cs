@@ -13,6 +13,7 @@ foreach (int item in horisontal_boxes_beforeGravityMove)
 {
     Console.Write($"{item}, ");
 }
+
 Console.WriteLine();
 
 boxes.ShowBoxes();
