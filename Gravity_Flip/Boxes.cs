@@ -66,7 +66,7 @@
 
             for (int j = 0; j < height; j++)
             {
-                for (int i = 0; i < width - boxes_horisontal[j]; i++)
+                for (int i = 0; i < boxes_horisontal[j]; i++)
                 {
                     boxesLeft[i, j] = 1;
                 }
