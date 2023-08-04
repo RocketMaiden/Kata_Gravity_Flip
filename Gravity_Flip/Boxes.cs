@@ -29,7 +29,7 @@
         {
             int[] boxes_horisontal  = new int[height];
             int count = 0;
-            int row = 0;
+            //int row = 0;
 
             for (int j = 0; j < height; j++)
             {
@@ -40,11 +40,10 @@
                         count++;
                     }
                 }
-                boxes_horisontal[row] = count;
+                boxes_horisontal[j] = count;
                 count = 0;
-                row++;
+                //row++;
             }
-
                 return boxes_horisontal;
         }
 
@@ -74,7 +73,5 @@
         {
             return boxes;
         }
-
-
     }
 }
