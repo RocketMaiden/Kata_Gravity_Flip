@@ -6,6 +6,7 @@
         private int width;
         private int height;
         private int[] boxes_horisontal;
+        private int[] boxes_vertical;
 
 
         public Boxes(int[] input_boxes_vertical)
@@ -13,21 +14,20 @@
             width = input_boxes_vertical.Length;
             height = input_boxes_vertical.Max();
             boxes_horisontal = new int[height];
+            boxes_vertical = new int[width];
 
             this.boxes = new int [width, height];
             
             for (int i = 0; i < width; i++)
             {
+                for (int j = height - input_boxes_vertical[i]; j < height; j++)
                 {
-                    for (int j = height - input_boxes_vertical[i]; j < height; j++)
-                    {
-                        this.boxes[i, j] = 1;
-                    }
+                    this.boxes[i, j] = 1;
                 }
             }
         }
 
-        public int[] HorisontalBoxes()
+        public int[] HorisontalBoxes(int[,] boxes)
         {
             int count = 0;
 
@@ -44,6 +44,25 @@
                 count = 0;
             }
                 return boxes_horisontal;
+        }
+
+        public int[] VerticalBoxes(int[,] boxes)
+        {
+            int count = 0;
+
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    if (boxes[i, j] == 1)
+                    {
+                        count++;
+                    }
+                }
+                boxes_vertical[i] = count;
+                count = 0;
+            }
+            return boxes_vertical;
         }
 
         public int[,] MoveRight()
