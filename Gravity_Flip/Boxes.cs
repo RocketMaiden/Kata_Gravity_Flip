@@ -3,7 +3,7 @@
     public class Boxes
     {
         private int[,] boxes;
-        int width;
+        private int width;
         int height;
         
 
@@ -16,7 +16,6 @@
             
             for (int i = 0; i < width; i++)
             {
-                //if (input_boxes_vertical[i] != 0)
                 {
                     for (int j = height - input_boxes_vertical[i]; j < height; j++)
                     {
@@ -28,7 +27,7 @@
 
         public int[] HorisontalBoxes()
         {
-            int[] boxes_horisontal  = new int[width];
+            int[] boxes_horisontal  = new int[height];
             int count = 0;
             int row = 0;
 
@@ -40,7 +39,6 @@
                     {
                         count++;
                     }
-
                 }
                 boxes_horisontal[row] = count;
                 count = 0;
@@ -48,22 +46,6 @@
             }
 
                 return boxes_horisontal;
-
-            /*
-            for (int i = 0; i < width; i++)
-            {
-                for (int j = 0; j < height; j++)
-                {
-                    if (boxes[j, i] == 1)
-                    {
-                        count++;
-                    }
-                }
-                boxes_horisontal[i] = count;
-                count = 0;
-            }
-            return boxes_horisontal;
-            */
         }
 
         public void MoveRight()
