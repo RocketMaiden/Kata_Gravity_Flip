@@ -4,13 +4,15 @@
     {
         private int[,] boxes;
         private int width;
-        int height;
-        
+        private int height;
+        private int[] boxes_horisontal;
+
 
         public Boxes(int[] input_boxes_vertical)
         {
             width = input_boxes_vertical.Length;
             height = input_boxes_vertical.Max();
+            boxes_horisontal = new int[height];
 
             this.boxes = new int [width, height];
             
@@ -27,9 +29,7 @@
 
         public int[] HorisontalBoxes()
         {
-            int[] boxes_horisontal  = new int[height];
             int count = 0;
-            //int row = 0;
 
             for (int j = 0; j < height; j++)
             {
@@ -42,28 +42,45 @@
                 }
                 boxes_horisontal[j] = count;
                 count = 0;
-                //row++;
             }
                 return boxes_horisontal;
         }
 
-        public void MoveRight()
+        public int[,] MoveRight()
         {
+            int[,] boxesRight = new int[width, height];
 
+            for (int j = 0; j < height; j++)
+            {
+                for (int i = width - boxes_horisontal[j]; i < width; i++)
+                {
+                    boxesRight[i, j] = 1;
+                }
+            }
+            return boxesRight;
         }
 
-        public void MoveLeft()
+        public int[,] MoveLeft()
         {
+            int[,] boxesLeft = new int[width, height];
 
+            for (int j = 0; j < height; j++)
+            {
+                for (int i = 0; i < width - boxes_horisontal[j]; i++)
+                {
+                    boxesLeft[i, j] = 1;
+                }
+            }
+            return boxesLeft;
         }
 
-        public void ShowBoxes()
+        public void ShowBoxes(int[,] boxesToShow)
         {
             for (int j = 0; j < height; j++)
             {
                 for (int i = 0; i < width; i++)
                 {
-                    Console.Write(boxes[i, j]);
+                    Console.Write(boxesToShow[i, j]);
                 }
                 Console.WriteLine();
             }
